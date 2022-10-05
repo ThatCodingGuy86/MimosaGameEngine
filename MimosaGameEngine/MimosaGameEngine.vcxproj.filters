@@ -79,6 +79,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="MimosaGameEngine.txt" />
+    <Text Include="..\MimosaGameEngine.txt" />
   </ItemGroup>
 </Project>
