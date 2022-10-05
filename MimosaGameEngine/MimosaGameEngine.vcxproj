@@ -222,7 +222,7 @@
     <ClInclude Include="engine\tests\test.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\MimosaGameEngine.txt" />
+    <Text Include="..\README.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
