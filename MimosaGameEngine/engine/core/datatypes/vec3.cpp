@@ -21,7 +21,7 @@ vec3::vec3(float x, float y, float z)
 // Implementation of vec3 int constructor from vec3.h
 vec3::vec3(int x, int y, int z)
 {
-	logger.warn("Initilization of vec3 with int constructor, this may result in data loss\n");
+	logger->warn("Initilization of vec3 with int constructor, this may result in data loss\n");
 
 	data[0] = (float)x;
 	data[1] = (float)y;

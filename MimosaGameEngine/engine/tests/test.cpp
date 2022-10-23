@@ -124,6 +124,89 @@ void tests::initTests()
 		asrt::AssertTrue(r == vec3(22.f, 19.f, 6.f), "mat4x4f::translate()", "{22, 19, 6}", r);
 	});
 
+	// Logger tests
+
+	// All other functions are omitted,
+	// because tests are not needed for
+	// said functions
+
+	// Logger::serialize() : std::string
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = (std::string)"abc";
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "abc", "Logger::serialize() : std::string", "\"abc\"", r);
+	});
+
+	// Logger::serialize() : int
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = 1234;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "1234", "Logger::serialize() : int", "\"1234\"", r);
+	});
+
+	// Logger::serialize() : float
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = 1.234f;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "1.234000", "Logger::serialize() : float", "\"1.234000\"", r);
+	});
+
+	// Logger::serialize() : double
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = 1.234;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "1.234000", "Logger::serialize() : double", "\"1.234000\"", r);
+	});
+
+	// Logger::serialize() : bool
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = true;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "true", "Logger::serialize() : bool", "\"true\"", r);
+	});
+
+	// Logger::serialize() : bool
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = true;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertNotTrue(r == "false", "Logger::serialize() : bool", "\"false\"", r);
+	});
+
+	// Logger::serialize() : invalid
+	tests.push_back([]() {
+		Logger logger = Logger(false);
+
+		std::any input = logger;
+
+		std::string r = logger.serialize(input);
+
+		asrt::AssertTrue(r == "Invalid Type", "Logger::serialize() : invalid", "\"Invalid Type\"", r);
+	});
+
 	// example test
 	//tests.push_back([]() {
 	//    std::string r = "actual result";

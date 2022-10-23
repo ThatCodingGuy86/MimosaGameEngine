@@ -1,7 +1,10 @@
 #include "callback.h"
 #include "globals.h"
 
-// Constructor for native callbacks
+/*
+   Constructor for native callbacks
+   (First arg is always the name of the callback)
+*/
 Callback::Callback(std::string _name, std::function<std::any(std::vector<std::any>)> _func)
 {
 	isMSL = false;
@@ -25,8 +28,13 @@ std::any Callback::Call(std::vector<std::any> args)
 {
 	if (!isMSL)
 	{
+		// Add name as first arg
+		std::vector<std::any> argsWithName = args;
+		std::any name = GetName();
+		argsWithName.emplace(argsWithName.begin(), name);
+
 		// Call native callback
-		return func(args);
+		return func(argsWithName);
 	}
 	else
 	{
@@ -34,7 +42,7 @@ std::any Callback::Call(std::vector<std::any> args)
 
 		// TODO: Add implementation of MimSL callbacks
 
-		logger.warn("Attempted to call a MimSL Callback, this is not implemented!");
+		logger->warn("Attempted to call a MimSL Callback, this is not implemented!");
 		return NULL;
 	}
-}
+}  

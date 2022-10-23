@@ -13,14 +13,20 @@ private:
 	// MSL VM signature, only used for MimSL callbacks
 	std::string signature;
 
-	// std::function for the native callback
+	/*
+	   std::function for the native callback
+	   (First arg is always the name of the callback)
+	*/
 	std::function<std::any(std::vector<std::any>)> func;
 
 	// Is this callback into a MimSL script
 	bool isMSL;
 
 public:
-	// Constructor for native callbacks
+	/*
+	   Constructor for native callbacks
+	   (First arg is always the name of the callback)
+	*/
 	Callback(std::string _name, std::function<std::any(std::vector<std::any>)> _func);
 
 	// Constructor for MimSL callbacks
