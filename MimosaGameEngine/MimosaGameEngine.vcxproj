@@ -199,6 +199,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="engine\core\callback.cpp" />
+    <ClCompile Include="engine\core\ecs\ecs_handler.cpp" />
     <ClCompile Include="engine\core\ecs\entity.cpp" />
     <ClCompile Include="engine\core\ecs\system.cpp" />
     <ClCompile Include="engine\core\log.cpp" />

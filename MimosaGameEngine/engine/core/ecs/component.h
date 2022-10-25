@@ -8,6 +8,7 @@ namespace ecs
 {
 	class Component
 	{
+	public:
 		uint32_t id;
 
 		std::vector<std::any> data;

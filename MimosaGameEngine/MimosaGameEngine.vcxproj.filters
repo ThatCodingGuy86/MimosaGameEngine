@@ -42,6 +42,9 @@
     <ClCompile Include="engine\core\ecs\system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="engine\core\ecs\ecs_handler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\rendering\datatypes\mat4x4.h">

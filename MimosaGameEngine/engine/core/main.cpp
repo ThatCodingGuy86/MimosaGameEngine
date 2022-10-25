@@ -31,7 +31,11 @@ int main(int argc, char* argv[])
 				std::any helloWorld = (std::string)"Hello World!\n";
 				return helloWorld;
 			}
-				
+			else
+			{
+				std::any nothing;
+				return nothing;
+			}
 		}
 		catch(const std::bad_any_cast& e)
 		{
@@ -39,7 +43,6 @@ int main(int argc, char* argv[])
 
 			std::any nothing;
 			return nothing;
-
 		}
 	};
 
