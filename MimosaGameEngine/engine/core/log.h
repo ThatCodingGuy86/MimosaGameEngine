@@ -13,11 +13,11 @@
 
 class Logger
 {
-private:
-	bool output;
 protected:
 	std::string m_log;
 public:
+	bool output;
+
 	// Default constructor, sets output to true
 	Logger();
 
@@ -37,9 +37,9 @@ public:
 	bool dumpLog();
 
 	/*
-   Serializes the given std::any into a string.
-   Allowed types are:
-   std::string, int, float, double, & bool
+	   Serializes the given std::any into a string.
+	   Allowed types are:
+	   std::string, int, float, double, & bool
 	*/
 	std::string serialize(std::any input);
 };

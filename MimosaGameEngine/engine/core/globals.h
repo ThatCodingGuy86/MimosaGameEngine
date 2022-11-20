@@ -1,5 +1,4 @@
 #pragma once
 #include "log.h"
 
-static Logger* logger;
-static bool debugMode = false;
+static Logger* logger = new Logger(true);

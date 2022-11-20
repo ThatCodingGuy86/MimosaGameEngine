@@ -1,0 +1,20 @@
+--- PLANNED ---
+
+-- Short Term --
+
+
+-- Long Term --
+
+- General -
+* 
+
+- APIs -
+
+* Threading API
+
+
+- Rendering -
+
+* Create abstraction layer so the same code can run on OpenGL, DirectX, and Vulkan.
+* Create functionality for custom vertex and fragment shaders
+* Create functionality for compute shaders, so GPU-based processing is possible

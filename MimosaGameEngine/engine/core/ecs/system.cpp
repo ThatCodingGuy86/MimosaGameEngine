@@ -10,15 +10,17 @@ ecs::System::System()
 // Register a new MimSL Callback for this System.
 void ecs::System::RegisterCallback(std::string name, std::string signature)
 {
-	/* RegisterCallback can only register MimSL
+	/*
+	   RegisterCallback can only register MimSL
 	   Callbacks, as it is impossible to create
-	   `std::function`s at runtime.
+	   `std::function`s with arbitrary code at runtime.
 	*/
 	Callback callback = Callback(name, signature);
 	callbacks.push_back(callback);
 }
 
-/* Register a std::vector of all native callbacks
+/*
+   Register a std::vector of all native callbacks
    *MUST ONLY BE CALLED ONCE, AT INITIALIZATION*
 */
 void ecs::System::RegisterNativeCallbacks(std::vector<std::tuple<std::string /* NAME */, std::function<std::any(std::vector<std::any>)> /* FUNC */>> v)
@@ -30,7 +32,8 @@ void ecs::System::RegisterNativeCallbacks(std::vector<std::tuple<std::string /* 
 	}
 }
 
-/* Call the Callback with name
+/*
+   Call the Callback with name
    `name`. Will return the Callback's
    return value/type.
 */

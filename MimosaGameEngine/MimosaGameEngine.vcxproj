@@ -199,9 +199,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="engine\core\callback.cpp" />
+    <ClCompile Include="engine\core\ecs\component.cpp" />
     <ClCompile Include="engine\core\ecs\ecs_handler.cpp" />
     <ClCompile Include="engine\core\ecs\entity.cpp" />
     <ClCompile Include="engine\core\ecs\system.cpp" />
+    <ClCompile Include="engine\core\event\event.cpp" />
+    <ClCompile Include="engine\core\helper\any_equal.cpp" />
     <ClCompile Include="engine\core\log.cpp" />
     <ClCompile Include="engine\core\main.cpp" />
     <ClCompile Include="engine\rendering\datatypes\mat4x4.cpp" />
@@ -215,7 +218,10 @@
     <ClInclude Include="engine\core\ecs\ecs_handler.h" />
     <ClInclude Include="engine\core\ecs\entity.h" />
     <ClInclude Include="engine\core\ecs\system.h" />
+    <ClInclude Include="engine\core\event\event.h" />
+    <ClInclude Include="engine\core\event\event_handler.h" />
     <ClInclude Include="engine\core\globals.h" />
+    <ClInclude Include="engine\core\helper\any_equal.h" />
     <ClInclude Include="engine\core\log.h" />
     <ClInclude Include="engine\rendering\datatypes\mat4x4.h" />
     <ClInclude Include="engine\core\datatypes\vec3.h" />
@@ -224,6 +230,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\README.txt" />
+    <Text Include="PLANS.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

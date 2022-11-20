@@ -3,6 +3,7 @@
 #include <any>
 #include <vector>
 #include <functional>
+#include "globals.h"
 
 class Callback
 {

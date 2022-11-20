@@ -15,11 +15,16 @@
 
 namespace tests
 {
-	static std::vector<std::function<void(void)>> tests;
+	static std::vector<std::function<void(void)>> unitTests;
+	static std::vector<std::function<void(void)>> prefTests;
 
-	void initTests();
+	void initUnitTests();
 
-	bool runTests();
+	void initPrefTests();
+
+	bool runUnitTests();
+
+	bool runPrefTests();
 
 	int testMain();
 }

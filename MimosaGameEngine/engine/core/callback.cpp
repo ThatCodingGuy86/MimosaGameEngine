@@ -1,5 +1,4 @@
 #include "callback.h"
-#include "globals.h"
 
 /*
    Constructor for native callbacks

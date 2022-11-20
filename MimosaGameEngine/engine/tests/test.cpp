@@ -1,11 +1,12 @@
 #include "test.h"
+#include "../core/ecs/component.h"
 
-void tests::initTests()
+void tests::initUnitTests()
 {
 	// vec3 operator tests
 
 	// vec3 == vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(1.f, 2.f, 3.f);
 
@@ -13,7 +14,7 @@ void tests::initTests()
 	});
 
 	// vec3 == vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(2.f, 4.f, 4.f);
 
@@ -21,14 +22,14 @@ void tests::initTests()
 	});
 
 	// (std::string)vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 v = vec3(1.15f, 2.489f, 3.7f);
 
 		asrt::AssertTrue((std::string)v == "{1.15, 2.489, 3.7}", "(std::string)vec3", "\"{1.15, 2.489, 3.7}\"", (std::string)v);
 	});
 
 	// vec3 += vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(1.f, 2.f, 3.f);
 		vec3 r = lhs + rhs;
@@ -37,7 +38,7 @@ void tests::initTests()
 	});
 
 	// vec3 + float
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 r = lhs + 2.f;
 
@@ -45,7 +46,7 @@ void tests::initTests()
 	});
 
 	// vec3 - vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(2.f, 0.f, 2.f);
 		vec3 r = lhs - rhs;
@@ -54,7 +55,7 @@ void tests::initTests()
 	});
 
 	// vec3 - float
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 r = lhs - 2.f;
 
@@ -62,7 +63,7 @@ void tests::initTests()
 	});
 
 	// vec3 * vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(2.f, 0.f, 2.f);
 		vec3 r = lhs * rhs;
@@ -71,7 +72,7 @@ void tests::initTests()
 	});
 
 	// vec3 * float
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 r = lhs * 2.f;
 
@@ -79,7 +80,7 @@ void tests::initTests()
 	});
 
 	// vec3 / vec3
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 rhs = vec3(2.f, 1.f, 2.f);
 		vec3 r = lhs / rhs;
@@ -88,7 +89,7 @@ void tests::initTests()
 	});
 
 	// vec3 / float
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		vec3 lhs = vec3(1.f, 2.f, 3.f);
 		vec3 r = lhs / 2.f;
 
@@ -98,7 +99,7 @@ void tests::initTests()
 	// mat4x4 tests
 
 	// mat4x4f::identity()
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		mat4x4f mat;
 		mat.identity();
 
@@ -113,7 +114,7 @@ void tests::initTests()
 	// so it is omitted, to be tested manually
 
 	// mat4x4f::translate()
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		mat4x4f mat;
 		mat.translate(vec3(20.f, 15.f, 3.f));
 
@@ -131,7 +132,7 @@ void tests::initTests()
 	// said functions
 
 	// Logger::serialize() : std::string
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = (std::string)"abc";
@@ -142,7 +143,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : int
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = 1234;
@@ -153,7 +154,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : float
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = 1.234f;
@@ -164,7 +165,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : double
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = 1.234;
@@ -175,7 +176,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : bool
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = true;
@@ -186,7 +187,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : bool
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = true;
@@ -197,7 +198,7 @@ void tests::initTests()
 	});
 
 	// Logger::serialize() : invalid
-	tests.push_back([]() {
+	unitTests.push_back([]() {
 		Logger logger = Logger(false);
 
 		std::any input = logger;
@@ -207,23 +208,82 @@ void tests::initTests()
 		asrt::AssertTrue(r == "Invalid Type", "Logger::serialize() : invalid", "\"Invalid Type\"", r);
 	});
 
+	// ecs::Component tests
+
+	// ecs::Component::Component()
+	unitTests.push_back([]() {
+		ecs::Component comp = ecs::Component("test name");
+		std::string r = comp.name;
+	    
+	    asrt::AssertTrue(r == "test name", "ecs::Component::Component()", "test name", r);
+	});
+
+	// ecs::Component::GetID()
+	unitTests.push_back([]() {
+		ecs::Component comp = ecs::Component("test name");
+
+		comp.InitID(0);
+		uint32_t r = comp.GetID();
+
+		asrt::AssertTrue(r == 0, "ecs::Component::GetID()", "0", std::to_string(r));
+	});
+
+	// ecs::Component::InitID() : multi init fail cond.
+	unitTests.push_back([]() {
+		ecs::Component comp = ecs::Component("test name");
+
+		comp.InitID(0);
+		comp.InitID(1);
+		uint32_t r = comp.GetID();
+
+		asrt::AssertTrue(r == 0, "ecs::Component::InitID() : multi init fail cond.", "0", std::to_string(r));
+	});
+
 	// example test
-	//tests.push_back([]() {
+	//unitTests.push_back([]() {
 	//    std::string r = "actual result";
 	//    
 	//    asrt::AssertTrue(r == "expected result", "example test name", "expected result (formatted as string)", r);
 	//});
 }
 
-bool tests::runTests()
+void tests::initPrefTests()
+{
+	// Example test
+	//prefTests.push_back([]() {
+	//	auto startTimePrev = std::chrono::high_resolution_clock::now();
+
+	//	for (int i = 0; i < 1000; i++)
+	//	{
+	//		// Call previous code here
+	//	}
+
+	//	auto endTimePrev = std::chrono::high_resolution_clock::now();
+	//	auto r_prev = std::chrono::duration_cast<std::chrono::milliseconds>(endTimePrev - startTimePrev).count();
+
+	//	auto startTime = std::chrono::high_resolution_clock::now();
+
+	//	for (int i = 0; i < 1000; i++)
+	//	{
+	//		// Call new code here
+	//	}
+
+	//	auto endTime = std::chrono::high_resolution_clock::now();
+	//	auto r = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime).count();
+
+	//	asrt::AssertTrue(r < r_prev, "example test name", "r < r_prev", std::to_string(r) + " : " + std::to_string(r_prev));
+	//});
+}
+
+bool tests::runUnitTests()
 {
 	unsigned int numFail = 0;
 
 	int i = 0;
-	for (auto &t : tests)
+	for (auto &t : unitTests)
 	{
 		std::stringstream percentageString;
-		percentageString << std::setprecision(3) << ((float)i / tests.size()) * 100;
+		percentageString << std::setprecision(3) << ((float)i / unitTests.size()) * 100;
 
 		std::cout << "Tests Done: " << percentageString.str() << "%\r";
 		std::flush(std::cout);
@@ -245,10 +305,49 @@ bool tests::runTests()
 		return true;
 	}
 
-	std::cout << numFail << " / " << tests.size() << " tests failed, or ";
+	std::cout << numFail << " / " << unitTests.size() << " tests failed, or ";
 
 	std::stringstream percentageString;
-	percentageString << std::setprecision(3) << ((float)numFail / tests.size()) * 100 << "% tests failed.\n";
+	percentageString << std::setprecision(3) << ((float)numFail / unitTests.size()) * 100 << "% tests failed.\n";
+	std::cout << percentageString.str();
+
+	return false;
+}
+
+bool tests::runPrefTests()
+{
+	unsigned int numFail = 0;
+
+	int i = 0;
+	for (auto& t : prefTests)
+	{
+		std::stringstream percentageString;
+		percentageString << std::setprecision(3) << ((float)i / prefTests.size()) * 100;
+
+		std::cout << "Tests Done: " << percentageString.str() << "%\r";
+		std::flush(std::cout);
+
+		try {
+			t();
+		}
+		catch (asrt::AssertException e) {
+			std::cout << "Test Failed:      \n" << e.what() << "\n";
+			numFail++;
+		}
+
+		i++;
+	}
+	std::cout << "                    \n\n";
+
+	if (numFail == 0) {
+		std::cout << "All tests passed.\n";
+		return true;
+	}
+
+	std::cout << numFail << " / " << prefTests.size() << " tests failed, or ";
+
+	std::stringstream percentageString;
+	percentageString << std::setprecision(3) << ((float)numFail / prefTests.size()) * 100 << "% tests failed.\n";
 	std::cout << percentageString.str();
 
 	return false;
@@ -256,9 +355,74 @@ bool tests::runTests()
 
 int tests::testMain()
 {
-	initTests();
-	if (!runTests()) {
-		return -2;
+	// Disable output for the logger, as some tested functions output logs
+	logger->output = false;
+	initUnitTests();
+	initPrefTests();
+
+	bool bRunUnitTests = false;
+	bool bRunPrefTests = false;
+
+	bool responseInvalid = true;
+	while (responseInvalid)
+	{
+		std::cout << "Run only Unit Tests [a], only Preformace Tests [b], or both? [c]\n";
+
+		std::string response;
+		std::cin >> response;
+
+		switch (toupper(response[0]))
+		{
+		case 'A':
+			bRunUnitTests = true;
+			responseInvalid = false;
+			break;
+		case 'B':
+			bRunPrefTests = true;
+			responseInvalid = false;
+			break;
+		case 'C':
+			bRunUnitTests = true;
+			bRunPrefTests = true;
+			responseInvalid = false;
+			break;
+		default:
+			std::cout << "Invalid response. Please enter a, b, or c.\n";
+			break;
+		}
 	}
-	return 0;
+
+	bool unitTestsFailed = false;
+	bool prefTestsFailed = false;
+
+	if (bRunUnitTests)
+	{
+		if (!runUnitTests()) {
+			unitTestsFailed = true;
+		}
+	}
+
+	if (bRunPrefTests)
+	{
+		if (!runPrefTests()) {
+			prefTestsFailed = true;
+		}
+	}
+
+	int returnVal = 0;
+
+	if (unitTestsFailed)
+	{
+		returnVal |= 1;
+	}
+
+	if (prefTestsFailed)
+	{
+		returnVal |= 2;
+	}
+
+	// Enable output for the logger, as to not mess up things in main
+	logger->output = true;
+
+	return -returnVal;
 }
